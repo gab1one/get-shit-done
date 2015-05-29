@@ -15,7 +15,7 @@ ini_local = path.expanduser(path.join("~", ".config/get-shit-done.ini"))
 ini_global = './sites.ini'
 
 if "linux" in sys.platform:
-    restart_network_command = ["/etc/init.d/networking", "restart"]
+    restart_network_command = ["systemctl", "restart", "NetworkManager"]
 elif "darwin" in sys.platform:
     restart_network_command = ["dscacheutil", "-flushcache"]
 elif "win32" in sys.platform:
@@ -23,7 +23,7 @@ elif "win32" in sys.platform:
 else:
     # Intention isn't to exit, as it still works, but just requires some
     # intervention on the user's part.
-    message = '"Please contribute DNS cache flush command on GitHub."'
+    message = '"Please contribute DNS cache flush command on GitHub."' 
     restart_network_command = ['echo', message]
 
 def ini_to_array(ini_file):
