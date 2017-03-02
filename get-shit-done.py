@@ -91,8 +91,8 @@ def play():
         rehash()
 
 def main():
-    if getpass.getuser() != 'root' and 'win32' not in sys.platform:
-        exit_error('Please run script as root.')
+    # if getpass.getuser() != 'root' and 'win32' not in sys.platform:
+    #    exit_error('Please run script as root.')
     if len(sys.argv) != 2:
         exit_error('usage: ' + sys.argv[0] + ' [work|play]')
     try:
